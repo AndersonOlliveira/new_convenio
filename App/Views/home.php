@@ -1160,7 +1160,7 @@
         });
     });
 </script> -->
-
+<!-- 
 <script>
     document.getElementById('acceptCookies').onclick = function() {
         localStorage.setItem('cookiesAccepted', 'true');
@@ -1169,6 +1169,6 @@
     if (localStorage.getItem('cookiesAccepted')) {
         document.querySelector('.cookie-banner').style.display = 'none';
     }
-</script>
+</script> -->
 
 </html>
