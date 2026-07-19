@@ -169,34 +169,43 @@ export function montarErros(erros) {
 
     const divErro = document.getElementById("erroNome");
     if (erros.nome) {
-        divErro.innerHTML = `<p>${erros.nome}</p>`;
+        divErro.innerHTML = `<span class="erro-msg">${erros.nome}</span>`;
+        divErro.classList.add("input-erro");
+
         temErro = true;
     } else {
         divErro.innerHTML = "";
+        divErro.classList.remove("input-erro");
     }
 
     const divErroEmail = document.getElementById("erroTelefoneVazio");
     if (erros.telefone) {
-        divErroEmail.innerHTML = `<p>${erros.telefone}</p>`;
+        divErroEmail.innerHTML = `<span class="erro-msg">${erros.telefone}</span>`;
+        divErroEmail.classList.add("input-erro");
         temErro = true;
     } else {
         divErroEmail.innerHTML = "";
+        divErroEmail.classList.remove("input-erro");
     }
 
     const divErroCidade = document.getElementById("erroCidade");
     if (erros.cidade) {
-        divErroCidade.innerHTML = `<p>${erros.cidade}</p>`;
+        divErroCidade.innerHTML = `<span class="erro-msg">${erros.cidade}</span>`;
+        divErroCidade.classList.add("input-erro");
         temErro = true;
     } else {
         divErroCidade.innerHTML = "";
+        divErroCidade.classList.remove("input-erro");
     }
 
     const divErroPlano = document.getElementById("erroPlanos");
     if (erros.plano) {
-        divErroPlano.innerHTML = `<p>${erros.plano}</p>`;
+        divErroPlano.innerHTML = `<span class="erro-msg">${erros.plano}</span>`;
+        divErroPlano.classList.add("input-erro");
         temErro = true;
     } else {
         divErroPlano.innerHTML = "";
+        divErroPlano.classList.remove("input-erro");
     }
 
     // retorna true se tiver algum erro

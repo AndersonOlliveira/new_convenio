@@ -30,11 +30,68 @@ class ApiHomeController extends Controller
 
     public function process_register()
     {
+        // Recebe dados do front (POST JSON ou form-data)
+        $input = json_decode(file_get_contents('php://input'), true) ?: $_POST;
 
-        echo '<pre>';
-        print_r('estou chegando aqui');
+        $name = trim($input['name'] ?? '');
+        $cidade = trim($input['cidade'] ?? '');
+        $telefone = trim($input['telefone'] ?? '');
+        $plano = trim($input['plano'] ?? '');
+        $mensagem = trim($input['mensagem'] ?? ($input['msg'] ?? ''));
 
-        print_r($this->plans->list_planos());
+        $errors = [];
+
+        if ($name === '') {
+            $errors['name'] = 'Nome é obrigatório';
+        }
+
+        if ($cidade === '') {
+            $errors['cidade'] = 'Cidade é obrigatória';
+        }
+
+        if ($telefone === '') {
+            $errors['telefone'] = 'Telefone é obrigatório';
+        } elseif (!preg_match('/^[0-9+()\-\s]{6,20}$/', $telefone)) {
+            $errors['telefone'] = 'Telefone inválido';
+        }
+
+        if ($plano === '') {
+            $errors['plano'] = 'Plano é obrigatório';
+        } else {
+            // opcional: validar se o plano existe
+            $planos = $this->plans->list_planos();
+            $planIds = array_column($planos, 'id');
+            if (!in_array($plano, $planIds) && !in_array($plano, array_column($planos, 'nome'))) {
+                $errors['plano'] = 'Plano inválido';
+            }
+        }
+
+        if ($mensagem === '') {
+            $errors['mensagem'] = 'Mensagem é obrigatória';
+        }
+
+        if (!empty($errors)) {
+            header('Content-Type: application/json');
+            $this->json([
+                'status' => false,
+                'errors' => $errors
+            ], 422);
+            exit;
+        }
+
+        // Se chegar aqui, dados válidos — retornar confirmação simples
+        header('Content-Type: application/json');
+        $this->json([
+            'status' => true,
+            'data' => [
+                'name' => $name,
+                'cidade' => $cidade,
+                'telefone' => $telefone,
+                'plano' => $plano,
+                'mensagem' => $mensagem,
+            ]
+        ], 200);
+        exit;
     }
     public function process_planos()
     {

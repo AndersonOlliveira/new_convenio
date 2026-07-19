@@ -637,6 +637,24 @@
       color: rgba(255, 255, 255, .75);
   }
 
+  .erro-msg {
+      color: #d9534f;
+      /* vermelho bootstrap */
+      font-size: 0.9em;
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+  }
+
+  .erro-msg::before {
+      content: "⚠️";
+      margin-right: 6px;
+  }
+
+  .input-erro {
+      border: 1px solid #d9534f;
+      background-color: #f9d6d5;
+  }
 
   @media (max-width: 980px) {
 

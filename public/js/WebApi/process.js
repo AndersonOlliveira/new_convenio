@@ -41,6 +41,7 @@ function submiTBootom() {
     cidade = $('#input-cidade').val();
     telefone = $('#InputTel').val();
     plano = $('#planoSelect').val();
+    mensagem = $('#mensagem').val();
 
     //salvo no storage para recuperar caso a pagina de erro
     saveStorage($('#InputName').val(), $('#input-cidade').val(), $('#InputTel').val());
@@ -53,17 +54,18 @@ function submiTBootom() {
         return;
     }
 
-    enviar(name, cidade, telefone, plano);
+    enviar(name, cidade, telefone, plano, mensagem);
 }
 
-function enviar(name, cidade, telefone, plano) {
+function enviar(name, cidade, telefone, plano, mensagem) {
 
     const dados = {
 
         name: name,
         cidade: cidade,
         telefone: telefone,
-        plano: plano
+        plano: plano,
+        msg: mensagem,
 
     }
 
@@ -76,7 +78,7 @@ function enviar(name, cidade, telefone, plano) {
         data: convert,
         contentType: 'application/json',
         success: function (response) {
-            if (response.Status == 2) {
+            if (response.status) {
 
 
 
