@@ -8,7 +8,7 @@ import {
     montarPlanos,
     montarErros,
     coookies
-} from '../../../functions/function.js';
+} from '../../functions/function.js';
 ///envio dados para processar no script de funcoes
 
 //ira chamar a função depois que todo o dom estriver carregado
@@ -16,6 +16,7 @@ import {
 $(document).ready(function () {
     verificarInputTel(); //VALODAR FORMATO DO CAMPO DE TELEFONE 
     coookies();
+    listar();
 });
 
 
@@ -118,3 +119,30 @@ toggle.addEventListener('click', () => {
     const isOpen = menu.classList.toggle('active');
     toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 });
+
+
+//buscar planos
+function listar() {
+
+    $.ajax({
+        url: 'api/get_all_palnos',
+        type: 'GET',
+        dataType: 'json',
+        success: function (response) {
+            if (response.status) {
+
+                montarPlanos(response.data);
+
+            } else {
+
+                alert(response.message);
+
+            }
+
+        },
+        error: function (xhr, status, error) {
+            console.error('Erro ao enviar:', error);
+        }
+
+    });
+}

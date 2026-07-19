@@ -134,8 +134,10 @@ export function verificarInputTel() {
 }
 export function montarPlanos(data) {
 
+    console.log(data);
 
-    const container = document.getElementById('planos');
+
+    const container = document.getElementById('planos_retorno');
     container.innerHTML = ''; // Limpa o conteúdo anterior
 
     const select = document.createElement('select');

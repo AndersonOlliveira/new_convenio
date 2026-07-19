@@ -36,4 +36,17 @@ class ApiHomeController extends Controller
 
         print_r($this->plans->list_planos());
     }
+    public function process_planos()
+    {
+
+        $dados = $this->plans->list_planos();
+
+        header('Content-Type: application/json');
+        $this->json([
+            'status' => true,
+            'data' => $dados
+        ], 200);
+
+        exit;
+    }
 }

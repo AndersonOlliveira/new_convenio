@@ -58,5 +58,11 @@ $router->post('/api/push_register', function () {
     $controller->process_register();
 });
 
+// BUSCA DOS PLANOS
+$router->get('/api/get_all_palnos', function () {
+    $controller = new \App\Controllers\Api\ApiHomeController();
+    $controller->process_planos();
+});
+
 // 4. Executa o roteador
 $router->run();

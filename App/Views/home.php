@@ -296,14 +296,8 @@
                     </div>
 
                     <div class="field">
-                        <label for="interesse">Tipo de Plano</label>
-                        <select id="planoSelect" name="interesse">
-                            <option value="">Selecione</option>
-                            <option value="individual">Plano Individual</option>
-                            <option value="familiar">Plano Familiar</option>
-                            <option value="empresarial">Plano Empresarial</option>
-                        </select>
-
+                        <label for="planoSelect">Tipo de Plano</label>
+                        <div id="planos_retorno"></div>
                     </div>
                     <div id="erroPlanos"></div>
 
