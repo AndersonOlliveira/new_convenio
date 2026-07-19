@@ -30,14 +30,6 @@ $router->get('/auth/api', function () {
 });
 
 
-// $router->before('GET|POST', '/api/auth/.*', function () {
-//     if (session_status() === PHP_SESSION_NONE) session_start();
-
-//     if (!isset($_SESSION['usuario_id'])) {
-//         header('Location: /login');
-//         exit;
-//     }
-// });
 
 $router->before('OPTIONS', '/api/.*', function () {
     Controller::handleCorsPreflight();
@@ -61,33 +53,9 @@ $router->post('/home', function () {
 
 });
 
-
-$router->get('/api/listaMobilidade', function () {
+$router->post('/api/push_register', function () {
     $controller = new \App\Controllers\Api\ApiHomeController();
-    $controller->testeConection();
-});
-
-//TRAZER OS PLANOS PARA O FRONTEND
-$router->get('/api/listPlanos', function () {
-    $controller = new \App\Controllers\Api\ApiHomeController();
-    $controller->listaPlanos();
-});
-
-//VERRIFICAR SE JÁ EXISTE
-$router->get('/api/bycpf', function () {
-    $controller = new \App\Controllers\Api\ApiHomeController();
-    $controller->getCpf($_REQUEST);
-});
-// ROTA PARA CADASTRO DE ALUNOS
-$router->post('/api/cadAlunosUsers', function () {
-    $controller = new \App\Controllers\Api\ApiHomeController();
-    $controller->cadAlunosUsers();
-});
-
-// ROTA PARA LISTAR OS DADOS DE PAGAMENTOS
-$router->get('/api/listPgamentos', function () {
-    $controller = new \App\Controllers\Api\ApiHomeController();
-    $controller->listPg();
+    $controller->process_register();
 });
 
 // 4. Executa o roteador

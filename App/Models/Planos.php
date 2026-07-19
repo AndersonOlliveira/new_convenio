@@ -8,7 +8,7 @@ class Planos extends Model
 {
     public function list_planos()
     {
-        $sql = "SELECT * FROM infoPgs WHERE status = true";
+        $sql = "SELECT * FROM planos";
 
         $stmt = $this->db->prepare($sql);
         $stmt->execute();

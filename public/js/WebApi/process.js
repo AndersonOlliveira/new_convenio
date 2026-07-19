@@ -21,12 +21,14 @@ $(document).ready(function () {
 
 $('#envio-dados-convenio').on('submit', function (e) {
     e.preventDefault();
-    submiTBootom();
 
-    //     if (submiTBootom()) { //se for true envio o formulario
+    console.log('foi chamando o evento de click');
+    //    submiTBootom();
 
-    //         form.submit();
-    //     }
+    if (submiTBootom()) { //se for true envio o formulario
+
+        form.submit();
+    }
 
 
 });
@@ -50,7 +52,7 @@ function submiTBootom() {
         return;
     }
 
-    // enviar(name, cidade, telefone, plano);
+    enviar(name, cidade, telefone, plano);
 }
 
 function enviar(name, cidade, telefone, plano) {
@@ -67,7 +69,7 @@ function enviar(name, cidade, telefone, plano) {
     const convert = JSON.stringify(dados);
 
     $.ajax({
-        url: '/registrar',
+        url: 'api/push_register',
         type: 'POST',
         dataType: 'json',
         data: convert,
@@ -77,34 +79,42 @@ function enviar(name, cidade, telefone, plano) {
 
 
 
-                swal({
-                    title: 'Sucesso!',
-                    text: response.message,
-                    icon: 'success',
-                    confirmButtonText: 'OK'
-                });
+                // swal({
+                //     title: 'Sucesso!',
+                //     text: response.message,
+                //     icon: 'success',
+                //     confirmButtonText: 'OK'
+                // });
 
 
 
             } else {
 
-                swal({
-                    title: 'Erro!',
-                    text: response.message,
-                    icon: 'error',
-                    confirmButtonText: 'Fechar'
-                });
+                // swal({
+                //     title: 'Erro!',
+                //     text: response.message,
+                //     icon: 'error',
+                //     confirmButtonText: 'Fechar'
+                // });
 
             }
 
         },
         error: function (xhr, status, error) {
-            swal({
-                title: 'Erro de conexão!',
-                text: 'Não foi possível enviar os dados.',
-                icon: 'error'
-            });
+            // swal({
+            //     title: 'Erro de conexão!',
+            //     text: 'Não foi possível enviar os dados.',
+            //     icon: 'error'
+            // });
         }
 
     });
 }
+
+const toggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.nav-menu');
+
+toggle.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('active');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+});
