@@ -3,13 +3,20 @@
 
 namespace App\Controllers\Api;
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 // use App\Models\Mobilidades;
 // use App\Models\Pagamento;
 // use App\Models\Planos;
 // use App\Models\PushDados;
-use App\Models\Planos;
+
 use Core\Controller;
+use App\Models\Planos;
+use App\Utilis\functions;
+use App\Utilis\Process_controller;
+
 // use Core\Functions as CoreFunctions;
 
 class ApiHomeController extends Controller
@@ -18,6 +25,8 @@ class ApiHomeController extends Controller
     protected $validar;
     protected $alunos;
     protected $plans;
+    protected $utlilitarios;
+    protected $process;
 
     public function __construct()
     {
@@ -26,51 +35,18 @@ class ApiHomeController extends Controller
         // $this->validar = new CoreFunctions();
         // $this->alunos = new PushDados();
         $this->plans  = new Planos();
+        $this->utlilitarios  = new functions();
+        $this->process  = new Process_controller();
     }
 
     public function process_register()
     {
-        // Recebe dados do front (POST JSON ou form-data)
+
         $input = json_decode(file_get_contents('php://input'), true) ?: $_POST;
 
-        $name = trim($input['name'] ?? '');
-        $cidade = trim($input['cidade'] ?? '');
-        $telefone = trim($input['telefone'] ?? '');
-        $plano = trim($input['plano'] ?? '');
-        $mensagem = trim($input['mensagem'] ?? ($input['msg'] ?? ''));
+        $errors = $this->utlilitarios->tratar_inputs($input);
 
-        $errors = [];
-
-        if ($name === '') {
-            $errors['name'] = 'Nome é obrigatório';
-        }
-
-        if ($cidade === '') {
-            $errors['cidade'] = 'Cidade é obrigatória';
-        }
-
-        if ($telefone === '') {
-            $errors['telefone'] = 'Telefone é obrigatório';
-        } elseif (!preg_match('/^[0-9+()\-\s]{6,20}$/', $telefone)) {
-            $errors['telefone'] = 'Telefone inválido';
-        }
-
-        if ($plano === '') {
-            $errors['plano'] = 'Plano é obrigatório';
-        } else {
-            // opcional: validar se o plano existe
-            $planos = $this->plans->list_planos();
-            $planIds = array_column($planos, 'id');
-            if (!in_array($plano, $planIds) && !in_array($plano, array_column($planos, 'nome'))) {
-                $errors['plano'] = 'Plano inválido';
-            }
-        }
-
-        if ($mensagem === '') {
-            $errors['mensagem'] = 'Mensagem é obrigatória';
-        }
-
-        if (!empty($errors)) {
+        if (!empty($errors) && isset($errors)) {
             header('Content-Type: application/json');
             $this->json([
                 'status' => false,
@@ -79,19 +55,18 @@ class ApiHomeController extends Controller
             exit;
         }
 
-        // Se chegar aqui, dados válidos — retornar confirmação simples
-        header('Content-Type: application/json');
-        $this->json([
-            'status' => true,
-            'data' => [
-                'name' => $name,
-                'cidade' => $cidade,
-                'telefone' => $telefone,
-                'plano' => $plano,
-                'mensagem' => $mensagem,
-            ]
-        ], 200);
-        exit;
+        $retorno  = $this->process->process_cliente($input);
+
+        if (isset($retorno)) {
+            header('Content-Type: application/json');
+            $this->json([
+                'status' => true,
+                'data' => [
+                    'mensagem' => 'Sucesso em enviar Formúlario',
+                ]
+            ], 200);
+            exit;
+        }
     }
     public function process_planos()
     {

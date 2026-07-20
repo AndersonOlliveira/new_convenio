@@ -35,7 +35,7 @@ $('#envio-dados-convenio').on('submit', function (e) {
 });
 
 function submiTBootom() {
-    let name, cidade, telefone, plano;
+    let name, cidade, telefone, plano, mensagem;
 
     name = $('#InputName').val();
     cidade = $('#input-cidade').val();

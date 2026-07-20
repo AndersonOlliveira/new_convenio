@@ -1,6 +1,10 @@
 <?php
+// Define o timezone para o horário de Brasília
+date_default_timezone_set('America/Sao_Paulo');
 // 1. Carrega o autoload do Composer (APENAS UMA VEZ)
 require_once __DIR__ . '/../vendor/autoload.php';
+
+
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();

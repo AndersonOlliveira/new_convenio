@@ -9,9 +9,11 @@ class Loggers
 
     public static function iniciar()
     {
-        self::$arquivoLog = $_SERVER['DOCUMENT_ROOT'] . '/../error/errorTratativa.txt';
-        echo "Loggers iniciado. Log de erros será salvo em: " . self::$arquivoLog . PHP_EOL;
+        self::$arquivoLog = $_SERVER['DOCUMENT_ROOT'] . '/../error/errorClientes.txt';
+        // echo "Loggers iniciado. Log de erros será salvo em: " . self::$arquivoLog . PHP_EOL;
         $diretorio = dirname(self::$arquivoLog);
+
+
 
         if (!is_dir($diretorio)) {
             mkdir($diretorio, 0755, true);
