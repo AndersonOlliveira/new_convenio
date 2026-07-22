@@ -19,6 +19,15 @@ $router = new \Bramus\Router\Router();
 $router->get('/', function () {
     require_once '../app/Views/home.php';
 });
+// rota para termno de uso 
+$router->get('/termo-uso', function () {
+    require_once '../app/Views/termos/termoUso.php';
+});
+
+// rota para termno de privacidade 
+$router->get('/termo-privacidade', function () {
+    require_once '../app/Views/termos/termoPrivacty.php';
+});
 
 $router->get('/login', function () {
     require_once '../app/Views/home.php';
