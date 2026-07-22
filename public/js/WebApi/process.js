@@ -7,7 +7,8 @@ import {
     verificarInputTel,
     montarPlanos,
     montarErros,
-    coookies
+    coookies,
+    limpar_campos
 } from '../../functions/function.js';
 ///envio dados para processar no script de funcoes
 
@@ -82,33 +83,36 @@ function enviar(name, cidade, telefone, plano, mensagem) {
 
 
 
-                // swal({
-                //     title: 'Sucesso!',
-                //     text: response.message,
-                //     icon: 'success',
-                //     confirmButtonText: 'OK'
-                // });
+                swal({
+                    title: 'Sucesso!',
+                    text: response.message,
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+
+                limpar_campos();
+
 
 
 
             } else {
 
-                // swal({
-                //     title: 'Erro!',
-                //     text: response.message,
-                //     icon: 'error',
-                //     confirmButtonText: 'Fechar'
-                // });
+                swal({
+                    title: 'Erro!',
+                    text: response.message,
+                    icon: 'error',
+                    confirmButtonText: 'Fechar'
+                });
 
             }
 
         },
         error: function (xhr, status, error) {
-            // swal({
-            //     title: 'Erro de conexão!',
-            //     text: 'Não foi possível enviar os dados.',
-            //     icon: 'error'
-            // });
+            swal({
+                title: 'Erro de conexão!',
+                text: 'Não foi possível enviar os dados.',
+                icon: 'error'
+            });
         }
 
     });

@@ -4,4 +4,5 @@
 
 <script type="module" src="../../../../js/WebApi/process.js"></script>
 <script src="../../../../js/popper/popper.min.js"></script>
+<script src="../../../../js/sweetAlert/sweetAlert.js"></script>
 <script src="../../../../js/bootstrap/bootstrap.min.js"></script>

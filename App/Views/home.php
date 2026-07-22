@@ -105,7 +105,7 @@
             </div>
         </section>
 
-        <section id="parceiros">
+        <!-- <section id="parceiros">
             <div class="container">
                 <h2 class="section-title">Parceiros</h2>
                 <p class="section-subtitle">
@@ -120,7 +120,7 @@
                     <div class="partner">SulAmérica</div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- para o card teste -->
 
@@ -260,9 +260,9 @@
                     <ul class="contact-list">
                         <li>
                             <strong>WhatsApp:</strong>
-                            <a href="https://wa.me/55199558210?text=Gostaria+de+saber+mais+sobre+os+Planos+da+MacBeneficios"
+                            <a href="https://wa.me/5519999558210?text=Gostaria+de+saber+mais+sobre+os+Planos+da+MacBeneficios"
                                 target="_blank" aria-label="Conversar no WhatsApp">
-                                (19) 9955-8210
+                                (19) 99955-8210
                                 <img src="images/whatsapp.png" alt="WhatsApp" class="icon">
                             </a>
                         </li>
@@ -326,7 +326,7 @@
                 <ul class="footer-list">
                     <li>
                         <strong>WhatsApp:</strong>
-                        <a href="https://wa.me/551999558210?text=Gostaria+de+saber+mais+sobre+os+Planos+da+MacBeneficios"
+                        <a href="https://wa.me/5519999558210?text=Gostaria+de+saber+mais+sobre+os+Planos+da+MacBeneficios"
                             target="_blank" aria-label="Conversar no WhatsApp">
                             (19) 99955-8210
 

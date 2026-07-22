@@ -223,3 +223,19 @@ export function coookies() {
         document.querySelector('.cookie-banner').style.display = 'none';
     }
 }
+
+
+export function limpar_campos() {
+    const formulario = document.getElementById('envio-dados-convenio');
+
+    // 2. Reseta todos os inputs, textareas e selects nativamente
+    formulario.reset();
+
+    // 3. Limpa também os textos das suas divErro
+    const divsErro = formulario.querySelectorAll('.divErro, #erroPlanos');
+    divsErro.forEach(div => div.innerText = '');
+
+    // 4. Se o conteúdo de '#planos_retorno' for gerado dinamicamente, limpa ele também
+    const planosRetorno = document.getElementById('planos_retorno');
+    if (planosRetorno) planosRetorno.innerHTML = '';
+}

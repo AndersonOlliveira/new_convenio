@@ -51,9 +51,17 @@ class ContatoPlanos extends Model
 
             if ($stmt->execute() && $stmt->rowCount() > 0) {
                 $planos = $this->plans->list_planos();
-                $planNomes = array_column($planos, 'nome_plano');
+                $planosIndexados = array_column($planos, null, 'id');
 
-                $this->mails->enviar_email($dados['name'], $dados['cidade'], $dados['telefone'], $planNomes);
+                // Busca o plano diretamente pelo ID enviado
+                $planoEncontrado = $planosIndexados[$dados['plano']] ?? null;
+
+                if ($planoEncontrado) {
+                    // O plano foi achado! Você pode acessar as colunas dele:
+                    $nomeDoPlano = $planoEncontrado['nome_plano'];
+                }
+
+                $this->mails->enviar_email($dados['name'], $dados['cidade'], $dados['telefone'], $nomeDoPlano);
 
                 return true;
             } else {
@@ -61,7 +69,7 @@ class ContatoPlanos extends Model
             };
         } catch (PDOException $e) {
             Logs::manipuladorDeExcecoes($e);
-            print_R($e->getMessage());
+            // print_R($e->getMessage());
         }
     }
 }
