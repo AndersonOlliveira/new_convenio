@@ -18,7 +18,14 @@ $(document).ready(function () {
     verificarInputTel(); //VALODAR FORMATO DO CAMPO DE TELEFONE 
     coookies();
     listar();
+
+
+    const hoje = new Date();
+    console.log(hoje);
+    document.getElementById("dataAtual").textContent = hoje.toLocaleDateString("pt-BR");
+    document.getElementById("ano").textContent = hoje.getFullYear();
 });
+
 
 
 $('#envio-dados-convenio').on('submit', function (e) {

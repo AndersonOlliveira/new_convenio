@@ -1,194 +1,114 @@
 <?php require_once('ViewCabecalho.php'); ?>
 
 <body>
-
     <header class="hero">
-
         <h1>Termos de Uso</h1>
-
-        <p>
-            Última atualização: 22 de julho de 2026
-        </p>
-
+        <p>Última atualização: <span id="dataAtual"></span></p>
     </header>
 
     <div class="container">
-
         <div class="card">
 
-            <div class="indice">
-
-                <h2>Índice</h2>
-
-                <ul>
-                    <li><a href="#aceitacao">1. Aceitação dos Termos</a></li>
-                    <li><a href="#objetivo">2. Objetivo do Site</a></li>
-                    <li><a href="#dados">3. Informações Coletadas</a></li>
-                    <li><a href="#uso">4. Uso das Informações</a></li>
-                    <li><a href="#responsabilidade">5. Responsabilidade do Usuário</a></li>
-                    <li><a href="#privacidade">6. Privacidade</a></li>
-                    <li><a href="#limitacao">7. Limitação de Responsabilidade</a></li>
-                    <li><a href="#alteracoes">8. Alterações dos Termos</a></li>
-                    <li><a href="#contato">9. Contato</a></li>
-                </ul>
-
-            </div>
+            <section id="empresa">
+                <h2>1. Informações da Empresa</h2>
+                <p>
+                    Este site é operado por <strong>MAC - Benefícios e Corretora de Seguros Ltda - ME</strong>,
+                    inscrita no CNPJ nº <strong>13.419.383/0001-89</strong>, com sede na
+                    Rua Maria Monteiro, 786, Edifício Augustus Sala, Cambuí, Campinas/SP, CEP 13025-151.
+                </p>
+            </section>
 
             <section id="aceitacao">
-
-                <h2>1. Aceitação dos Termos</h2>
-
+                <h2>2. Aceitação dos Termos</h2>
                 <p>
-                    Ao acessar e utilizar este site, o usuário declara que leu,
-                    compreendeu e concorda integralmente com os presentes Termos de Uso,
-                    comprometendo-se a respeitar todas as condições aqui estabelecidas.
+                    Ao acessar e utilizar este site, o usuário declara que leu, compreendeu e concorda integralmente
+                    com os presentes Termos de Uso, comprometendo-se a respeitar todas as condições aqui estabelecidas.
                 </p>
-
             </section>
 
             <section id="objetivo">
-
-                <h2>2. Objetivo do Site</h2>
-
+                <h2>3. Objetivo do Site</h2>
                 <p>
-                    Este site possui como finalidade disponibilizar informações,
-                    apresentar nossos serviços e coletar dados de contato dos usuários
-                    interessados, possibilitando o atendimento, envio de informações,
-                    esclarecimento de dúvidas e futuras comunicações comerciais.
+                    O site tem como finalidade disponibilizar informações, apresentar serviços e coletar dados de contato
+                    dos usuários interessados, possibilitando atendimento, envio de informações e futuras comunicações comerciais.
                 </p>
-
             </section>
 
             <section id="dados">
-
-                <h2>3. Informações Coletadas</h2>
-
-                <p>
-                    Durante a utilização do site poderão ser solicitados os seguintes dados:
-                </p>
-
+                <h2>4. Informações Coletadas</h2>
+                <p>Durante a utilização do site poderão ser solicitados:</p>
                 <ul>
-                    <li>Nome completo;</li>
-                    <li>Número de telefone.</li>
+                    <li>Nome completo</li>
+                    <li>Número de telefone</li>
+                    <!-- <li>Endereço de e-mail</li> -->
                 </ul>
-
-                <p>
-                    O fornecimento dessas informações é voluntário e ocorre mediante
-                    preenchimento dos formulários disponibilizados pelo próprio usuário.
-                </p>
-
             </section>
 
             <section id="uso">
-
-                <h2>4. Uso das Informações</h2>
-
-                <p>
-                    Os dados informados poderão ser utilizados para:
-                </p>
-
+                <h2>5. Uso das Informações</h2>
+                <p>Os dados informados poderão ser utilizados para:</p>
                 <ul>
-
-                    <li>Entrar em contato com o usuário;</li>
-
-                    <li>Responder solicitações realizadas através do site;</li>
-
-                    <li>Apresentar produtos, serviços ou propostas comerciais;</li>
-
-                    <li>Realizar atendimento por telefone ou WhatsApp;</li>
-
-                    <li>Melhorar a qualidade do atendimento prestado.</li>
-
+                    <li>Entrar em contato com o usuário</li>
+                    <li>Responder solicitações</li>
+                    <li>Apresentar produtos e serviços</li>
+                    <li>Realizar atendimento por telefone ou WhatsApp</li>
                 </ul>
-
                 <p>
-                    Os dados não serão vendidos ou compartilhados com terceiros,
-                    salvo quando necessário para cumprimento de obrigação legal,
-                    determinação judicial ou execução dos serviços solicitados.
+                    Os dados não serão vendidos ou compartilhados com terceiros, salvo quando necessário para cumprimento de obrigação legal.
                 </p>
-
             </section>
 
             <section id="responsabilidade">
-
-                <h2>5. Responsabilidade do Usuário</h2>
-
+                <h2>6. Responsabilidade do Usuário</h2>
                 <p>
-                    O usuário declara que todas as informações fornecidas são verdadeiras,
-                    completas e atualizadas.
+                    O usuário declara que todas as informações fornecidas são verdadeiras, completas e atualizadas,
+                    sendo vedado o uso de dados falsos ou de terceiros sem autorização.
                 </p>
-
-                <p>
-                    É vedado fornecer dados falsos ou utilizar informações de terceiros
-                    sem a devida autorização.
-                </p>
-
             </section>
 
-            <section id="privacidade">
-
-                <h2>6. Privacidade</h2>
-
+            <section id="direitos">
+                <h2>7. Direitos dos Usuários</h2>
                 <p>
-                    O tratamento dos dados pessoais ocorre em conformidade com a
-                    Lei Geral de Proteção de Dados (LGPD – Lei nº 13.709/2018),
-                    respeitando os princípios da transparência, finalidade,
-                    necessidade e segurança.
+                    Nos termos da LGPD, o usuário poderá solicitar acesso, correção, exclusão ou portabilidade dos seus dados,
+                    bem como revogar consentimentos concedidos.
                 </p>
-
-                <p>
-                    Para informações detalhadas sobre o tratamento dos dados,
-                    consulte nossa Política de Privacidade.
-                </p>
-
-            </section>
-
-            <section id="limitacao">
-
-                <h2>7. Limitação de Responsabilidade</h2>
-
-                <p>
-                    Embora sejam adotadas medidas técnicas e administrativas para
-                    proteção das informações, nenhum ambiente digital é totalmente
-                    livre de riscos. Assim, não garantimos a inexistência de falhas,
-                    interrupções ou acessos indevidos causados por terceiros.
-                </p>
-
             </section>
 
             <section id="alteracoes">
-
                 <h2>8. Alterações dos Termos</h2>
-
                 <p>
-                    Estes Termos de Uso poderão ser modificados a qualquer momento,
-                    sendo recomendável que o usuário consulte esta página periodicamente.
-                    As alterações entrarão em vigor imediatamente após sua publicação.
+                    Estes Termos de Uso poderão ser modificados a qualquer momento, entrando em vigor imediatamente após sua publicação.
                 </p>
-
             </section>
 
             <section id="contato">
-
                 <h2>9. Contato</h2>
-
                 <p>
-                    Em caso de dúvidas sobre estes Termos de Uso, entre em contato
-                    pelos canais oficiais disponibilizados neste site.
-                </p>
+                    Em caso de dúvidas, entre em contato pelos canais oficiais:
+                    <strong>E-mail:</strong><a href="mailto:ouvidoria@macbeneficios.com.br">ouvidoria@macbeneficios.com.br</a>
+                    <strong>Telefone:</strong>
+                    <a href="https://wa.me/5519999558210?text=Gostaria+de+saber+mais+sobre+os+Planos+da+MacBeneficios"
+                        target="_blank">
+                        (19) 99955-8210
 
+                    </a>
+                </p>
             </section>
 
         </div>
 
         <footer>
-
-            <!-- &copy; <?= date('Y') ?> - <?= APP_NAME ?> - Todos os direitos reservados. -->
-
+            &copy; <span id="ano"></span> - MAC Benefícios e Corretora de Seguros Ltda - Todos os direitos reservados.
         </footer>
-
     </div>
 
+
+    <script>
+        const hoje = new Date();
+        document.getElementById("dataAtual").textContent = hoje.toLocaleDateString("pt-BR");
+        document.getElementById("ano").textContent = hoje.getFullYear();
+    </script>
 </body>
+
 
 </html>

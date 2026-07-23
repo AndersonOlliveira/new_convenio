@@ -370,7 +370,7 @@
 
         <div class="footer-bottom">
             <div class="container">
-                © 2026 MAC Benefícios. Todos os direitos reservados.
+                &copy; <span id="ano"></span> - MAC Benefícios. Todos os direitos reservados.
             </div>
         </div>
     </footer>
